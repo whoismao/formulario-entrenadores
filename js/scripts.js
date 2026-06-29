@@ -4,7 +4,11 @@ document.getElementById('formularioEntrenadores').addEventListener('submit', asy
     e.preventDefault(); 
     
     const boton = document.querySelector('.boton-enviar');
+    const mensajeExito = document.getElementById('notificacionExito');
     const textoOriginal = boton.textContent;
+    
+    mensajeExito.style.display = 'none';
+    
     boton.textContent = 'Enviando...';
     boton.disabled = true;
 
@@ -17,8 +21,13 @@ document.getElementById('formularioEntrenadores').addEventListener('submit', asy
             mode: 'no-cors' 
         });
 
-        alert('¡Datos del entrenador guardados con éxito!');
+        mensajeExito.style.display = 'block';
         this.reset(); 
+        
+        setTimeout(() => {
+            mensajeExito.style.display = 'none';
+        }, 5000);
+
     } catch (error) {
         alert('Hubo un error al guardar los datos.');
         console.error(error);
