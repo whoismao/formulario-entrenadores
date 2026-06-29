@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina de ayuda para entrenadores</title>
+    
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 0;
+        }
+
+        .contenedor {
+            background-color: #e9ecef;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-superior {
+            display: block;
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: none;              
+            height: 1px;                
+            background-color: #000000;  
+            width: 85%;                 
+            margin: 20px auto;          
+        }
+
+        .grupo-formulario {
+            margin-bottom: 20px;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .campo-formulario {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        .contenedor-cedula {
+            display: flex;
+            gap: 10px;
+        }
+
+        .selector-nacionalidad {
+            width: 70px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .campo-cedula {
+            flex: 1;
+        }
+
+        .boton-enviar {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 85%;
+            margin: 30px auto 0 auto;
+            font-weight: bold;
+        }
+
+        .boton-enviar:hover {
+            background-color: #0056b3;
+        }
+
+        .texto-instruccion {
+            text-align: center;
+            color: #666;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <img src="fotoos/WhatsApp Image 2026-06-29 at 2.37.42 PM.jpeg" alt="Logo" class="logo-superior">
+        
+        <h2 style="text-align: center;">Datos del Entrenador</h2>
+        <hr>
+        <p class="texto-instruccion">Ingrese los datos en cada campo.</p>
+
+        <form id="formularioEntrenadores">
+            
+            <div class="grupo-formulario">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" class="campo-formulario" 
+                       placeholder="Ej. Carlos Silva" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$" 
+                       title="Solo se permiten letras y espacios, sin caracteres especiales." required>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="cedula">Cédula de Identidad:</label>
+                <div class="contenedor-cedula">
+                    <select name="nacionalidad" class="selector-nacionalidad">
+                        <option value="V">V</option>
+                        <option value="E">E</option>
+                    </select>
+                    <input type="text" id="cedula" name="cedula" class="campo-formulario campo-cedula" 
+                           placeholder="Ej. 12345678" pattern="^[0-9]{6,8}$" 
+                           title="La cédula debe contener solo números (entre 6 y 8 dígitos) sin puntos ni espacios." required>
+                </div>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="campo-formulario" required>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="direccion">Dirección de Habitación:</label>
+                <input type="text" id="direccion" name="direccion" class="campo-formulario" 
+                       placeholder="Ej. Av. Principal, Res. El Sol, Apto 4B" required>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="parroquia">Parroquia donde vive (Caracas):</label>
+                <select id="parroquia" name="parroquia" class="campo-formulario" required>
+                    <option value="" disabled selected>Seleccione una parroquia...</option>
+                    <option value="Altagracia">Altagracia</option>
+                    <option value="Antímano">Antímano</option>
+                    <option value="Caricuao">Caricuao</option>
+                    <option value="Catedral">Catedral</option>
+                    <option value="Coche">Coche</option>
+                    <option value="El Junquito">El Junquito</option>
+                    <option value="El Paraíso">El Paraíso</option>
+                    <option value="El Recreo">El Recreo</option>
+                    <option value="El Valle">El Valle</option>
+                    <option value="La Candelaria">La Candelaria</option>
+                    <option value="La Pastora">La Pastora</option>
+                    <option value="La Vega">La Vega</option>
+                    <option value="Macarao">Macarao</option>
+                    <option value="San Agustín">San Agustín</option>
+                    <option value="San Bernardino">San Bernardino</option>
+                    <option value="San José">San José</option>
+                    <option value="San Juan">San Juan</option>
+                    <option value="San Pedro">San Pedro</option>
+                    <option value="Santa Rosalía">Santa Rosalía</option>
+                    <option value="Santa Teresa">Santa Teresa</option>
+                    <option value="Sucre (Catia)">Sucre (Catia)</option>
+                    <option value="23 de Enero">23 de Enero</option>
+                </select>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="club">Club al que pertenece y/o dirige:</label>
+                <input type="text" id="club" name="club" class="campo-formulario" 
+                       placeholder="Ej. Escuela de Baloncesto Capital" required>
+            </div>
+
+            <div class="grupo-formulario">
+                <label for="acontecimiento">Último lugar de acontecimiento:</label>
+                <input type="text" id="acontecimiento" name="acontecimiento" class="campo-formulario" 
+                       placeholder="Ej. Gimnasio Poliedrito" required>
+            </div>
+
+            <button type="submit" class="boton-enviar">Aceptar</button>
+        </form>
+    </div>
+
+    <footer>
+        Desarrollado por Mauricio Correa
+    </footer>
+
+</body>
+</html>
